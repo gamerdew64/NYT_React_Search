@@ -1,0 +1,11 @@
+div.thumbnail {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  padding-top: 100%;
+}
+
+li.list-group-item:hover {
+  background-color: #ffe9ec;
+}
