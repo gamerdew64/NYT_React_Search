@@ -5,7 +5,9 @@ router.get("/recipes", (req, res) => {
   axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json", {
       params: {
         'api-key': "b9f91d369ff59547cd47b931d8cbc56b:0:74623931",
-        q: req.query.q
+        q: req.query.q,
+        begin_date: req.query.beginDate,
+        end_date: req.query.endDate
       }
     })
     .then(({ data }) => {

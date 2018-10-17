@@ -5,10 +5,19 @@ import axios from "axios";
 
 // The getRecipes method retrieves recipes from the server
 // It accepts a "query" or term to search the recipe api for
+// export default {
+//   getRecipes: function(query) {
+//     return axios.get("/api/recipes", { params: { q: query } });
+//   }
 export default {
-  getRecipes: function(query) {
-    return axios.get("/api/recipes", { params: { q: query } });
+  getRecipes: function(data) {
+    return axios.get("/api/recipes", { params: {
+      q: data.recipeSearch,
+      beginDate: data.beginDate,
+      endDate: data.endDate
+    } });
   }
+
 };
 
 // ********************************************************************************

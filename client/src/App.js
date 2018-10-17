@@ -10,7 +10,9 @@ import { Container, Row, Col } from "./components/Grid";
 class App extends Component {
   state = {
     recipes: [],
-    recipeSearch: ""
+    recipeSearch: "",
+    beginDate: "",
+    endDate: ""
   };
 
   handleInputChange = event => {
@@ -25,7 +27,11 @@ class App extends Component {
   handleFormSubmit = event => {
     // When the form is submitted, prevent its default behavior, get recipes update the recipes state
     event.preventDefault();
-    API.getRecipes(this.state.recipeSearch)
+    API.getRecipes({
+      recipeSearch: this.state.recipeSearch,
+      beginDate: this.state.beginDate,
+      endDate: this.state.endDate
+    })
       // .then(res => this.setState({ recipes: res.data.response.docs }))
       .then(res => this.setState({ recipes: res.data }))
       .catch(err => console.log(err));
@@ -47,7 +53,19 @@ class App extends Component {
                         name="recipeSearch"
                         value={this.state.recipeSearch}
                         onChange={this.handleInputChange}
-                        placeholder="Search For a Recipe"
+                        placeholder="Article Keyword to Search"
+                      />
+                      <Input
+                        name="beginDate"
+                        value={this.state.beginDate}
+                        onChange={this.handleInputChange}
+                        placeholder="Please enter a begin date (in YYYYMMDD format)"
+                      />
+                      <Input
+                        name="endDate"
+                        value={this.state.endDate}
+                        onChange={this.handleInputChange}
+                        placeholder="Please enter an end date (in YYYYMMDD format)"
                       />
                     </Col>
                     <Col size="xs-3 sm-2">
@@ -67,7 +85,7 @@ class App extends Component {
           <Row>
             <Col size="xs-12">
               {!this.state.recipes.length ? (
-                <h1 className="text-center">No Recipes to Display</h1>
+                <h1 className="text-center">No Articles to Show</h1>
               ) : (
                 <RecipeList>
                   {this.state.recipes.map(recipe => {
