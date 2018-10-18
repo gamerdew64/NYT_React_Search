@@ -14,12 +14,12 @@ export const RecipeListItem = props => (
           <h3>{props.title}</h3>
           <p><b>Summary:</b> {props.ingredients}</p>
           <p>Word Count: {props.wordcount}</p>
-          <form class="display-2" action="/api/recipes" method="save">
-            <button class="navbar-brand btn btn-danger recipes">✔</button>
-          </form>
-          <form class="display-2" action="/api/recipes" method="delete">
-            <button class="navbar-brand btn btn-primary recipes">x</button>
-          </form>
+          // <form class="display-2" action="/api/recipes" method="save">
+          //   <button class="navbar-brand btn btn-danger recipes">✔</button>
+          // </form>
+          // <form class="display-2" action="/api/recipes" method="delete">
+          //   <button class="navbar-brand btn btn-primary recipes">x</button>
+          // </form>
           <a rel="noreferrer noopener" target="_blank" href={props.href}>Take me to the link!</a>
         </Col>
       </Row>

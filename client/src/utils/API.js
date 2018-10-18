@@ -12,7 +12,7 @@ import axios from "axios";
 export default {
   getRecipes: function(data) {
     return axios.get("/api/recipes", { params: {
-      q: data.recipeSearch,
+      q: data.articleSearch,
       beginDate: data.beginDate,
       endDate: data.endDate
     } });

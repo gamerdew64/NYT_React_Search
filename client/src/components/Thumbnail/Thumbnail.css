@@ -9,3 +9,7 @@ div.thumbnail {
 li.list-group-item:hover {
   background-color: #ffe9ec;
 }
+
+h1.text-center {
+  padding-top: 5%;
+}

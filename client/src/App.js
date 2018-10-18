@@ -10,7 +10,7 @@ import { Container, Row, Col } from "./components/Grid";
 class App extends Component {
   state = {
     recipes: [],
-    recipeSearch: "",
+    articleSearch: "",
     beginDate: "",
     endDate: ""
   };
@@ -28,7 +28,7 @@ class App extends Component {
     // When the form is submitted, prevent its default behavior, get recipes update the recipes state
     event.preventDefault();
     API.getRecipes({
-      recipeSearch: this.state.recipeSearch,
+      articleSearch: this.state.articleSearch,
       beginDate: this.state.beginDate,
       endDate: this.state.endDate
     })
@@ -50,8 +50,8 @@ class App extends Component {
                   <Row>
                     <Col size="xs-9 sm-10">
                       <Input
-                        name="recipeSearch"
-                        value={this.state.recipeSearch}
+                        name="articleSearch"
+                        value={this.state.articleSearch}
                         onChange={this.handleInputChange}
                         placeholder="Article Keyword to Search"
                       />
@@ -88,15 +88,15 @@ class App extends Component {
                 <h1 className="text-center">No Articles to Show</h1>
               ) : (
                 <RecipeList>
-                  {this.state.recipes.map(recipe => {
+                  {this.state.recipes.map(articleItem => {
                     return (
                       <RecipeListItem
-                        key={recipe._id}
-                        title={recipe.headline.main}
-                        href={recipe.web_url}
-                        ingredients={recipe.snippet}
-                        thumbnail={recipe.multimedia.url}
-                        wordcount={recipe.word_count}
+                        key={articleItem._id}
+                        title={articleItem.headline.main}
+                        href={articleItem.web_url}
+                        ingredients={articleItem.snippet}
+                        thumbnail={articleItem.multimedia.url}
+                        wordcount={articleItem.word_count}
                       />
                     );
                   })}
