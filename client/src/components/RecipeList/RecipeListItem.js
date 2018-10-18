@@ -3,6 +3,16 @@ import Thumbnail from "../Thumbnail";
 import { Container, Row, Col } from "../Grid";
 
 // RecipeListItem renders a bootstrap list item containing data from the recipe api call
+
+//Form that needs to be optimized:
+// <form class="display-2" action="/api/recipes" method="save">
+//   <button class="navbar-brand btn btn-danger recipes">✔</button>
+// </form>
+// <form class="display-2" action="/api/recipes" method="delete">
+//   <button class="navbar-brand btn btn-primary recipes">x</button>
+// </form>
+
+
 export const RecipeListItem = props => (
   <li className="list-group-item">
     <Container>
@@ -14,12 +24,6 @@ export const RecipeListItem = props => (
           <h3>{props.title}</h3>
           <p><b>Summary:</b> {props.ingredients}</p>
           <p>Word Count: {props.wordcount}</p>
-          // <form class="display-2" action="/api/recipes" method="save">
-          //   <button class="navbar-brand btn btn-danger recipes">✔</button>
-          // </form>
-          // <form class="display-2" action="/api/recipes" method="delete">
-          //   <button class="navbar-brand btn btn-primary recipes">x</button>
-          // </form>
           <a rel="noreferrer noopener" target="_blank" href={props.href}>Take me to the link!</a>
         </Col>
       </Row>
